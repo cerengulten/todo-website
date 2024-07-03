@@ -1,20 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: large;
+  padding-right: 20px;
+  padding-left: 30px;
+  height:75px;
+  width: 100%;
+  background-color: #2E3944;
+  color: #D3D9D4;
 }
 
 .left-container{
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  justify-content: space-between;
+  padding: 5px;
+  width: 350px;
 }
 .right-container{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 450px;
+}
+
+.date-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+  margin-right: 15px;
+}
+
+.theme-toggle{
+  margin-right: 30px;
+}
+
+.button-prev{
+  width: 90px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #D3D9D4;
+  font-weight: bold;
+  color: #2E3944;
+}
+
+.button-calender{
+  width: 90px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #D3D9D4;
+  font-weight: bold;
+  color: #2E3944;
 }

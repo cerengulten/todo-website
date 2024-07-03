@@ -11,10 +11,10 @@ function Navbar() {
       </div>
       <div className='right-container'>
         <div className='date-buttons'>
-          <button>Prev. Day</button>
-          <button>Calender</button>
+          <button className='button-prev'>Prev. Day</button>
+          <button className='button-calender'>Calender</button>
         </div>
-        <Switch />
+        <Switch className='theme-toggle'/>
       </div>
     </div>
 

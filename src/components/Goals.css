@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+.goals-container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  margin: 40px;
+  width: 400px;
+  height: 500px;
+  justify-content: space-between;
+  background-color: red;
+}
