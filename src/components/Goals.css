@@ -4,9 +4,34 @@
   display: flex;
   flex-direction: column;
   padding-top: 25px;
-  margin: 40px;
+  margin: 25px;
   width: 400px;
-  height: 500px;
+  height: 550px;
   justify-content: space-between;
-  background-color: red;
+  align-items: center;
 }
+
+.monthly-goals{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  width: 350px;
+  height: 240px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1.5px;
+}
+
+.weekly-goals{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  width: 350px;
+  height: 240px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1.5px;
+}
+
