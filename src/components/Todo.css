@@ -1,1 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+.todo-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+  padding-top: 25px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: 1050px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.todo-column, .process-column, .finished-column{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.column-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+}
+
+.column-header hr{
+  width: 60%; 
+  margin-top: 5px; 
+  border: none; 
+  border-top: 1px solid black; 
+}
