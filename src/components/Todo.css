@@ -2,9 +2,8 @@
 
 .todo-container{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   margin: 20px;
+  justify-content: space-between;
   padding-top: 25px;
   padding-left: 35px;
   padding-right: 35px;
@@ -12,24 +11,26 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   font-size: 20px;
+  gap: 22px;
 }
 
-.todo-column, .process-column, .finished-column{
+.column-container{
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.header-container{
   display: flex;
-  flex-direction: column;
-  width: 300px;
+  margin-bottom: 3px;
+  align-items: center;
+  justify-content: space-between;
+}
+.mainHeader{
+  font-size: medium;
 }
 
-.column-header{
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  width: 100%;
-}
-
-.column-header hr{
-  width: 60%; 
-  margin-top: 5px; 
-  border: none; 
-  border-top: 1px solid black; 
+.num-cards{
+  border-radius: 2px;
+  font-size: small;
+  
 }
