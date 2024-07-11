@@ -34,3 +34,36 @@
   font-size: small;
   
 }
+.card{
+  height: 100%;
+  width: 100%;
+  background-color: aliceblues;
+  transition: background-color 0.3s ease;
+}
+.card:active{
+  background-color: gray;
+}
+
+.card-container{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: medium;
+  font-size: 14px;
+  cursor: grab;
+  border-style: solid;
+  border-width: 1.2px;
+  border-radius: 4px;
+  border-color: #d6ccc2;
+  background-color: #f5ebe0;
+  padding: 9px;
+}
+.card-container:active{
+  cursor: grabbing;
+}
+
+.drop-indicator{
+  margin: auto 2px;
+  height: 2px;
+  width: 100%;
+  background-color: #4361ee;
+  opacity: 0;
+}
