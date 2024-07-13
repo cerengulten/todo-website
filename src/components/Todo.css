@@ -41,7 +41,7 @@
   transition: background-color 0.3s ease;
 }
 .card:active{
-  background-color: gray;
+  background-color: #f8edeb;
 }
 
 .card-container{
@@ -54,16 +54,69 @@
   border-radius: 4px;
   border-color: #d6ccc2;
   background-color: #f5ebe0;
-  padding: 9px;
+  padding: 12px;
 }
 .card-container:active{
   cursor: grabbing;
 }
 
 .drop-indicator{
-  margin: auto 2px;
+  margin:  2px;
   height: 2px;
   width: 100%;
   background-color: #4361ee;
   opacity: 0;
+}
+
+.add-button{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 6px;
+  font-family: 'Quicksand',sans-serif;
+  font-size: small;
+  font-weight: 600;
+  color: black;
+  background-color: #FFFFFF;
+  border: none;
+}
+.new-task{
+  width: 100%;
+  padding: 12px;
+  border-style: solid;
+  border-width: 1.2px;
+  border-radius: 4px;
+  border-color: #ffcfd2;
+  background-color: #fde4cf;
+  opacity: 80%;
+  font-family: 'Quicksand',sans-serif;
+  font-size: small;
+  font-weight: 800;
+}
+.new-task::placeholder{
+  color: #420061;
+}
+.new-task:focus{
+  outline: 0;
+}
+.space-buttons{
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+  gap: 6px;
+}
+
+.close-button{
+  border: none;
+  background-color: transparent;
+  padding: 9px 6px;
+  font-family: 'Quicksand',sans-serif;
+  font-size: small;
+  font-weight: 500;
+}
+
+.close-button:hover{
+  color: #985f99;
 }

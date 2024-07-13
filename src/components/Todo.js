@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './Todo.css';
+import AddIcon from '@mui/icons-material/Add';
 
 function Todo() {
   const [cards, setCards] = useState(DEFAULT_CARDS);
@@ -44,6 +45,7 @@ const Column = ({title, headingColor, cards, column, setCards}) =>{
           return <Card key={c.id} {...c}/>
         })}
         <DropIndicator beforeId="-1" column={column} />
+        <AddCard column={column} setCards={setCards}/>
       </div>
     </div>
   );
@@ -74,6 +76,40 @@ const DropIndicator = ({beforeId, column}) =>{
         className='drop-indicator'  />
   );
   };
+const AddCard = ({column, setCards}) =>{
+  const [text, setText] = useState("")
+  const [adding, setAdding] = useState(false)
+  return(
+    <div>
+    {
+      adding ? (
+        <form>
+          <textarea 
+            onChange={(e) => setText(e.target.value)}
+            autoFocus
+            placeholder='Add new task...'
+            className='new-task'/>
+          <div className='space-buttons'>
+            <button
+              onClick={() => setAdding(false)}
+              className='close-button'>
+              Close
+            </button>
+
+          </div>
+        </form>
+      ): (
+        <button
+              onClick={() => setAdding(true)}
+              className='add-button' >
+          <span>Add Card</span>
+          <AddIcon sx={{ fontSize: 14}}/>
+        </button>
+      )
+    }
+    </div>
+  );
+};
 
 const DEFAULT_CARDS = [
   // BACKLOG
