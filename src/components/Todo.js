@@ -79,11 +79,29 @@ const DropIndicator = ({beforeId, column}) =>{
 const AddCard = ({column, setCards}) =>{
   const [text, setText] = useState("")
   const [adding, setAdding] = useState(false)
+
+  const handleSubmit = (e) =>{
+
+    e.preventDefault();
+
+    if(!text.trim().length) return;
+    
+    const newCard = {
+      column,
+      title: text.trim(),
+      id: Math.random().toString(),
+    };
+
+    setCards((pv) => [...pv, newCard] );
+
+    setAdding(false);
+
+  };
   return(
     <div>
     {
       adding ? (
-        <form>
+        <form onSubmit={handleSubmit}>
           <textarea 
             onChange={(e) => setText(e.target.value)}
             autoFocus
@@ -94,6 +112,12 @@ const AddCard = ({column, setCards}) =>{
               onClick={() => setAdding(false)}
               className='close-button'>
               Close
+            </button>
+            <button
+              type='submit'
+              className='newtask-button'>
+              <span>Add</span>
+              <AddIcon sx={{ fontSize: 14}}/>
             </button>
 
           </div>
