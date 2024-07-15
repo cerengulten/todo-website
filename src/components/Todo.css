@@ -34,16 +34,15 @@
   font-size: small;
   
 }
-.card{
+.selected{
   height: 100%;
   width: 100%;
-  background-color: aliceblues;
+  background-color: transparent;
   transition: background-color 0.3s ease;
 }
-.card:active{
+.selected:active{
   background-color: #f8edeb;
 }
-
 .card-container{
   font-family: 'Quicksand', sans-serif;
   font-weight: medium;

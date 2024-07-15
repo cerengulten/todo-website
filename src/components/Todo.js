@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import './Todo.css';
 import AddIcon from '@mui/icons-material/Add';
+import { motion } from "framer-motion"
 
 function Todo() {
   const [cards, setCards] = useState(DEFAULT_CARDS);
@@ -33,6 +34,19 @@ export default Todo
 
 const Column = ({title, headingColor, cards, column, setCards}) =>{
   const [active, setActive] = useState(false); /*used for hover the card, booelan */ 
+  const handleDragStart = (e, card) =>{
+    e.dataTransfer.setData("cardId", card.id);
+
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setActive(true);
+  };
+
+  const handleDragLeave = () =>{
+    setActive(false);
+  };
   const filteredCards = cards.filter((c) => c.column === column);
   return(
     <div className='column-container'>
@@ -40,27 +54,33 @@ const Column = ({title, headingColor, cards, column, setCards}) =>{
         <h3 className='mainHeader' style={{color: headingColor}}>{title}</h3>
         <span className='num-cards'>{filteredCards.length}</span> {/*number of the cards in the column will be in here*/}
       </div>
-      <div className={`card ${active ? 'active' : ''}`}>
+      <div 
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          className={`selected ${active ? 'active' : ''}`}>
         {filteredCards.map((c) => {
-          return <Card key={c.id} {...c}/>
+          return <Card key={c.id} {...c}
+                  handleDragStart={handleDragStart} />
+
         })}
-        <DropIndicator beforeId="-1" column={column} />
+        <DropIndicator beforeId={null} column={column} />
         <AddCard column={column} setCards={setCards}/>
       </div>
     </div>
   );
 };
-const Card = ({title, id, column}) =>{
+const Card = ({title, id, column, handleDragStart}) =>{
   return(
     <div>
       <DropIndicator beforeId={id} column={column}/>
-      <div 
+      <motion.div 
           layout
           layoutId = {id}
           draggable = 'true'
+          onDragStart={(e) => handleDragStart(e, {title,id,column})}
           className='card-container'>
           <p className='card-content'>{title}</p>
-      </div>
+      </motion.div>
       
     </div>
     
@@ -101,7 +121,7 @@ const AddCard = ({column, setCards}) =>{
     <div>
     {
       adding ? (
-        <form onSubmit={handleSubmit}>
+        <motion.form layout onSubmit={handleSubmit}>
           <textarea 
             onChange={(e) => setText(e.target.value)}
             autoFocus
@@ -121,14 +141,15 @@ const AddCard = ({column, setCards}) =>{
             </button>
 
           </div>
-        </form>
+        </motion.form>
       ): (
-        <button
+        <motion.button
+              layout
               onClick={() => setAdding(true)}
               className='add-button' >
           <span>Add Card</span>
           <AddIcon sx={{ fontSize: 14}}/>
-        </button>
+        </motion.button>
       )
     }
     </div>
