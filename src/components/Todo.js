@@ -61,25 +61,31 @@ const Column = ({title, headingColor, cards, column, setCards}) =>{
     });
   };
 
-  const getNearestIndicator = (e,indicators) => {
-    const DISTANCE_OFFSET = 100;
+  const getNearestIndicator = (e, indicators) => {
+  
+    // Get the midpoint of the element being dragged
+    const draggingRect = e.target.getBoundingClientRect();
+    const draggingMidpoint = draggingRect.top + draggingRect.height / 2;
+  
+    // Find the closest indicator based on the distance to the midpoint
     const el = indicators.reduce(
-      (closest, child) =>{
+      (closest, child) => {
         const box = child.getBoundingClientRect();
-        const offset = e.clientY - (box.top - DISTANCE_OFFSET);
-
-        if ( offset < 0 && offset > closest.offset) {
-          return {offset: offset, element: child};
-        } else{
-          return closest; 
+        const midpoint = box.top + box.height / 2;
+        const offset = draggingMidpoint - midpoint;
+  
+        if (Math.abs(offset) < Math.abs(closest.offset)) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
         }
       },
       {
-        offset: Number.NEGATIVE_INFINITY,
-        element: indicators[indicators.length-1],
+        offset: Number.POSITIVE_INFINITY,
+        element: indicators[indicators.length - 1],
       }
-
     );
+  
     return el;
   };
 
@@ -161,7 +167,7 @@ const Card = ({title, id, column, handleDragStart}) =>{
           layoutId = {id}
           draggable = 'true'
           onDragStart={(e) => handleDragStart(e, {title,id,column})}
-          className='card-container'>
+          className={`card-container ${column}`}>
           <p className='card-content'>{title}</p>
       </motion.div>
       
@@ -209,7 +215,7 @@ const AddCard = ({column, setCards}) =>{
             onChange={(e) => setText(e.target.value)}
             autoFocus
             placeholder='Add new task...'
-            className='new-task'/>
+            className={`new-task ${column}`}/>
           <div className='space-buttons'>
             <button
               onClick={() => setAdding(false)}
