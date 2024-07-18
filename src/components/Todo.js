@@ -2,32 +2,36 @@ import React from 'react';
 import { useState } from 'react';
 import './Todo.css';
 import AddIcon from '@mui/icons-material/Add';
-import { motion } from "framer-motion"
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import { motion } from "framer-motion";
+import { BsFillTrashFill } from "react-icons/bs";
 
 function Todo() {
   const [cards, setCards] = useState(DEFAULT_CARDS);
   return (
-    <div className='todo-container'>
-      <Column 
-            title='To-Do'
-            column='todo'
-            headingColor='#073b4c'
-            cards={cards}
-            setCards={setCards}/>
-      <Column
-             title='Process'
-             column='process'
-             headingColor='#ffd166'
-             cards={cards}
-             setCards={setCards}/>
-      <Column  
-            title='Finished'
-            column='done'
-            headingColor='#06d6a0'
-            cards={cards}
-            setCards={setCards}/>
-    </div> 
+      <div className='todo-container'>
+        <Column 
+              title='To-Do'
+              column='todo'
+              headingColor='#073b4c'
+              cards={cards}
+              setCards={setCards}/>
+        <Column
+              title='Process'
+              column='process'
+              headingColor='#ffd166'
+              cards={cards}
+              setCards={setCards}/>
+        <Column  
+              title='Finished'
+              column='done'
+              headingColor='#06d6a0'
+              cards={cards}
+              setCards={setCards}/>
+        <BurnBarrel setCards={setCards}/>
+      </div> 
+      
+
   )
 }
 
@@ -244,7 +248,33 @@ const AddCard = ({column, setCards}) =>{
     </div>
   );
 };
+const BurnBarrel = ({setCards}) => {
+  const [active, setActive] = useState(false);
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setActive(true);
+  };
+  const handleDragLeave = () =>{
+    setActive(false);
+    
+  };
+  const handleDragEnd = (e) => {
+    const cardId = e.dataTransfer.getData("cardId");
 
+    setCards((pv) => pv.filter((c) => c.id !== cardId));
+
+    setActive(false);
+  };
+  return(
+    <div
+      onDrop={handleDragEnd}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      className='delete-box'>
+      <BsFillTrashFill size={50} color={active ? "red" : "black"} />
+    </div>
+  );
+};
 const DEFAULT_CARDS = [
   // BACKLOG
   { title: "Look into render bug in dashboard", id: "1", column: "todo" },
