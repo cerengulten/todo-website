@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
+
 .goals-container{
   display: flex;
   flex-direction: column;
@@ -17,24 +18,110 @@
 .monthly-goals{
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-top: 10px;
-  width: 350px;
-  height: 240px;
-  border-style: solid;
-  border-color: black;
-  border-width: 1.5px;
+  width: 250px;
+  height: 250px;
+  background-color: #ffc;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transform:rotate(2deg)
+}
+
+.montly-header, .weekly-header{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.month-name, .week-name{
+  margin: 0 auto;
+}
+
+.add-goal{
+  border: none;
+  background-color: transparent;
 }
 
 .weekly-goals{
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-top: 10px;
-  width: 350px;
-  height: 240px;
-  border-style: solid;
-  border-color: black;
+  width: 250px;
+  height: 250px;
+  background-color: #ffc;
   border-width: 1.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transform:rotate(-2deg)
 }
 
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 250px;
+  background: white;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+p{
+  font-family: 'Quicksand', sans-serif;
+  font-size: medium;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+textarea{
+  width: 90%;
+  height: 80px;
+  resize: none;
+  border-width: 0.4px;
+  border-color: #9c89b8;
+}
+textarea:focus{
+  border-color: #8338ec;
+  border-width: 0.6px;
+  outline: none;
+}
+.add-new{
+  border: none;
+  background-color:#e0aaff ;
+  width: 50px;
+  height: 30px;
+  border-radius: 18px;
+  font-weight: 600;
+}
+.add-new:hover{
+  box-shadow:  0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.list{
+  padding: 15px 15px 20px 25px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.finished{
+  text-decoration: line-through;
+}
