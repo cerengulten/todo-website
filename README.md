@@ -17,3 +17,10 @@ While the app is functional and useful for daily use, there is always room for i
 
 I enjoyed working on this project and I hope you find it useful. Feel free to reach out with any feedback or suggestions!
 
+### Video Demo 
+
+
+
+
+https://github.com/user-attachments/assets/e15059cf-46db-4c60-97ca-bd4788d2e55a
+
