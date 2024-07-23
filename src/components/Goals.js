@@ -3,6 +3,9 @@ import './Goals.css';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 function Goals() {
+  const today = new Date();
+  const month = today.toLocaleString('default', { month: 'long' });
+
   const [open, isOpen] = useState(false);
   const [goalType, setGoalType] = useState(''); // To track whether it's a monthly or weekly goal
   const [monthlyGoals, setMonthlyGoals] = useState([]);
@@ -45,7 +48,7 @@ function Goals() {
     <div className='goals-container'>
       <div className='monthly-goals'>
         <div className='montly-header'>
-          <h3 className='month-name'>July Goals</h3>
+          <h3 className='month-name'>{month} Goals</h3>
           <button className="add-goal" onClick={() => { isOpen(true); setGoalType('monthly'); }}>
             <AddCircleOutlineIcon fontSize='small' />
           </button>
