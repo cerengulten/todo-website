@@ -20,7 +20,5 @@ I enjoyed working on this project and I hope you find it useful. Feel free to re
 ### Video Demo 
 
 
-
-
-https://github.com/user-attachments/assets/e15059cf-46db-4c60-97ca-bd4788d2e55a
+https://github.com/user-attachments/assets/c7eb4d25-868d-43e6-bcfb-e8eed23e05c7
 
